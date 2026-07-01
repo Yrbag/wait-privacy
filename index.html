@@ -1,127 +1,316 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Informativa sulla privacy — WAIT!</title>
+<title>WAIT!</title>
 <style>
   :root { --indigo: #4F46E5; --purple: #7C3AED; --text: #1f2430; --muted: #6b7280; }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text);
-    line-height: 1.65;
-    background: #f8f7f4;
-  }
-  .hero {
-    background: linear-gradient(135deg, var(--indigo), var(--purple));
-    color: #fff;
-    padding: 56px 24px 40px;
-    text-align: center;
-  }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text); line-height: 1.65; background: #f8f7f4; }
+  .hero { position: relative; background: linear-gradient(135deg, var(--indigo), var(--purple));
+    color: #fff; padding: 56px 24px 40px; text-align: center; }
   .hero .logo { font-size: 44px; font-weight: 800; letter-spacing: -1px; margin: 0; }
   .hero h1 { font-size: 20px; font-weight: 600; margin: 14px 0 4px; opacity: 0.95; }
-  .hero .updated { font-size: 13px; opacity: 0.75; }
+  .hero .updated, .hero .sub { font-size: 13px; opacity: 0.78; }
+  .langbar { position: absolute; top: 16px; right: 16px; }
+  .langbar select { appearance: none; -webkit-appearance: none; background: rgba(255,255,255,0.16);
+    color: #fff; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px;
+    padding: 7px 30px 7px 14px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat; background-position: right 10px center; }
+  .langbar select option { color: #1f2430; }
   main { max-width: 720px; margin: -20px auto 0; background: #fff; border-radius: 20px 20px 0 0;
-         padding: 32px 24px 64px; box-shadow: 0 -2px 24px rgba(0,0,0,0.04); }
+    padding: 32px 24px 64px; box-shadow: 0 -2px 24px rgba(0,0,0,0.04); }
   h2 { font-size: 19px; margin-top: 34px; color: var(--text); }
+  h3 { font-size: 16px; margin-top: 24px; margin-bottom: 4px; color: var(--text); }
   p, li { font-size: 15.5px; color: #333; }
   a { color: var(--indigo); font-weight: 600; }
   .lead { font-size: 16.5px; }
   .muted { color: var(--muted); }
+  .contact { display: block; margin: 20px 0 8px; padding: 18px 20px; background: #f1f0fb;
+    border-radius: 14px; text-align: center; font-size: 16px; }
+  .contact a { font-size: 17px; }
   footer { text-align: center; font-size: 13px; color: var(--muted); padding: 24px; }
+  footer a { color: var(--muted); }
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
 </style>
 </head>
 <body>
   <div class="hero">
+    <div class="langbar">
+      <select id="langsel" aria-label="Language"><option value="de">Deutsch</option><option value="en">English</option><option value="hr">Hrvatski</option><option value="it">Italiano</option><option value="hu">Magyar</option><option value="pl">Polski</option><option value="pt-BR">Português (Brasil)</option><option value="sk">Slovenčina</option><option value="fi">Suomi</option><option value="sv">Svenska</option></select>
+    </div>
     <p class="logo">W!</p>
-    <h1>Informativa sulla privacy</h1>
-    <p class="updated">Ultimo aggiornamento: 21 giugno 2026</p>
+    <div data-lang="de"><h1>Datenschutzerklärung</h1><p class="updated">Zuletzt aktualisiert: 1. Juli 2026</p></div><div data-lang="en"><h1>Privacy Policy</h1><p class="updated">Last updated: 1 July 2026</p></div><div data-lang="hr"><h1>Pravila privatnosti</h1><p class="updated">Zadnje ažuriranje: 1. srpnja 2026.</p></div><div data-lang="it"><h1>Informativa sulla privacy</h1><p class="updated">Ultimo aggiornamento: 1 luglio 2026</p></div><div data-lang="hu"><h1>Adatvédelmi szabályzat</h1><p class="updated">Utolsó frissítés: 2026. július 1.</p></div><div data-lang="pl"><h1>Polityka prywatności</h1><p class="updated">Ostatnia aktualizacja: 1 lipca 2026</p></div><div data-lang="pt-BR"><h1>Política de Privacidade</h1><p class="updated">Última atualização: 1 de julho de 2026</p></div><div data-lang="sk"><h1>Zásady ochrany osobných údajov</h1><p class="updated">Posledná aktualizácia: 1. júla 2026</p></div><div data-lang="fi"><h1>Tietosuojaseloste</h1><p class="updated">Viimeksi päivitetty: 1. heinäkuuta 2026</p></div><div data-lang="sv"><h1>Integritetspolicy</h1><p class="updated">Senast uppdaterad: 1 juli 2026</p></div>
   </div>
+  <main data-lang="de">
+<p class="lead">WAIT! ist auf den Schutz deiner Privatsphäre ausgelegt: <strong>deine Daten bleiben auf deinem Gerät</strong>. Wir haben keinen Server, erstellen keine Konten, erheben und übertragen keine personenbezogenen Daten und nutzen kein Tracking und keine Werbung.</p>
+<h2>Verantwortlicher und Kontakt</h2>
+<p>Verantwortlicher: der Entwickler von WAIT!.<br />Bei Fragen zum Datenschutz: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Welche Daten die App verarbeitet</h2>
+<p>Alles, was du in der App eingibst — Wünsche (Name, Preis, Link, Notiz, Kategorie), Stundenlohn, Statistiken, Erfolge und Einstellungen — wird <strong>ausschließlich lokal</strong> auf deinem Gerät gespeichert. Diese Daten:</p>
+<ul><li>werden nicht an uns oder an von uns betriebene Server Dritter gesendet;</li><li>sind für uns in keiner Weise zugänglich;</li><li>können in der App einzeln gelöscht werden, und alle Daten werden beim Deinstallieren der App entfernt.</li></ul>
+<p><strong>Wir erheben nicht:</strong> Name, E-Mail, Standort, Kontakte, Werbe-IDs (IDFA), Nutzungs- oder Analysedaten. <strong>Es gibt keinen Login.</strong></p>
+<h2>Funktion „Link-Vorschau"</h2>
+<p>Wenn du einen Produktlink einfügst oder teilst, verbindet sich die App <strong>direkt mit der von dir angegebenen Website</strong> (z. B. dem Online-Shop), um Titel und Preis der Seite automatisch auszulesen. Das bedeutet:</p>
+<ul><li>diese Anfrage erfolgt zwischen deinem Gerät und der Drittseite: diese Seite kann die Anfrage (z. B. IP-Adresse) gemäß <strong>ihrer eigenen</strong> Datenschutzerklärung protokollieren, auf die wir keinen Einfluss haben;</li><li>wir <strong>erhalten, sehen oder speichern</strong> weder den Link noch die ausgelesenen Daten auf irgendeinem Server. Das Ergebnis bleibt nur auf deinem Gerät.</li></ul>
+<h2>Benachrichtigungen</h2>
+<p>Die App nutzt <strong>lokale Benachrichtigungen</strong> (Erinnerung am Ende der Wartezeit sowie optionale Erinnerungen). Sie werden auf dem Gerät geplant und verwaltet: Wir senden keine Benachrichtigungen von einem Server und benötigen dafür keine personenbezogenen Daten. Du kannst sie in den Systemeinstellungen oder in den App-Einstellungen deaktivieren.</p>
+<h2>Käufe (Pro-Version)</h2>
+<p>Ein etwaiger Kauf der Pro-Version wird <strong>von Apple</strong> über den App Store abgewickelt. Wir verarbeiten und erhalten keine Zahlungsdaten: Die Transaktion unterliegt der Datenschutzerklärung von Apple.</p>
+<h2>Kinder</h2>
+<p>Die App richtet sich nicht an Kinder unter 14 Jahren und erhebt wissentlich keine Daten von ihnen.</p>
+<h2>Speicherung und Löschung der Daten</h2>
+<p>Da die Daten nur auf deinem Gerät liegen, hast du die volle Kontrolle: Du kannst einzelne Wünsche und Verlaufseinträge in der App löschen und alle Daten durch Deinstallieren der App entfernen.</p>
+<h2>Änderungen dieser Erklärung</h2>
+<p>Wir können diese Erklärung aktualisieren; die aktuelle Version ist stets unter dieser Adresse verfügbar, mit überarbeitetem Datum „Zuletzt aktualisiert".</p>
+<h2>Deine Rechte</h2>
+<p>Da wir keine personenbezogenen Daten auf unseren Systemen verarbeiten, haben wir keine Daten von dir, die wir bereitstellen, korrigieren oder löschen könnten. Für Anfragen oder Rückfragen kannst du uns dennoch unter <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> schreiben.</p>
+</main><main data-lang="en">
+<p class="lead">WAIT! is built to respect your privacy: <strong>your data stays on your device</strong>. We have no server, we don't create accounts, we don't collect or transmit your personal data, and we use no tracking or advertising.</p>
+<h2>Controller and contact</h2>
+<p>Data controller: the developer of WAIT!.<br />For any privacy question: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>What data the app processes</h2>
+<p>Everything you enter in the app — wishes (name, price, link, note, category), hourly wage, statistics, achievements and settings — is saved <strong>only locally</strong> on your device. This data:</p>
+<ul><li>is not sent to us or to any third-party servers we run;</li><li>is not accessible to us in any way;</li><li>can be deleted item by item inside the app, and all data is removed when you uninstall the app.</li></ul>
+<p><strong>We do not collect:</strong> name, email, location, contacts, advertising identifiers (IDFA), usage or analytics data. <strong>There is no login.</strong></p>
+<h2>"Link preview" feature</h2>
+<p>When you paste or share a product link, the app connects <strong>directly to the site you provided</strong> (e.g. the online store) to automatically read the page's title and price. As a result:</p>
+<ul><li>this request happens between your device and the third-party site: that site may log the request (e.g. IP address) under <strong>its own</strong> privacy policy, which we do not control;</li><li>we do <strong>not</strong> receive, see or store the link or the extracted data on any server. The result stays only on your device.</li></ul>
+<h2>Notifications</h2>
+<p>The app uses <strong>local notifications</strong> (a reminder when a waiting period ends, plus optional reminders). They are scheduled and handled on the device: we don't send notifications from a server and no personal data is needed to generate them. You can turn them off in your system settings or in the app's settings.</p>
+<h2>Purchases (Pro version)</h2>
+<p>Any purchase of the Pro version is handled <strong>by Apple</strong> via the App Store. We don't process or receive payment data: the transaction is subject to Apple's privacy policy.</p>
+<h2>Children</h2>
+<p>The app is not intended for children under 14 and does not knowingly collect their data.</p>
+<h2>Data retention and deletion</h2>
+<p>Since data lives only on your device, you have full control: you can delete individual wishes and history entries inside the app, and remove all data by uninstalling the app.</p>
+<h2>Changes to this policy</h2>
+<p>We may update this policy; the updated version will always be available at this address, with a revised "Last updated" date.</p>
+<h2>Your rights</h2>
+<p>Since we don't process personal data on our systems, we have no data of yours to provide, correct or delete. For any request or clarification you can still write to <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+</main><main data-lang="hr">
+<p class="lead">WAIT! je osmišljen uz poštovanje tvoje privatnosti: <strong>tvoji podaci ostaju na tvom uređaju</strong>. Nemamo poslužitelj, ne stvaramo račune, ne prikupljamo niti prenosimo tvoje osobne podatke te ne koristimo praćenje ni oglašavanje.</p>
+<h2>Voditelj obrade i kontakt</h2>
+<p>Voditelj obrade: razvijatelj aplikacije WAIT!.<br />Za sva pitanja o privatnosti: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Koje podatke aplikacija obrađuje</h2>
+<p>Sve što uneseš u aplikaciju — želje (naziv, cijena, poveznica, bilješka, kategorija), satnica, statistika, postignuća i postavke — sprema se <strong>isključivo lokalno</strong> na tvom uređaju. Ti podaci:</p>
+<ul><li>ne šalju se nama ni poslužiteljima trećih strana kojima upravljamo;</li><li>nama nisu dostupni ni na koji način;</li><li>možeš ih brisati stavku po stavku u aplikaciji, a svi se podaci uklanjaju deinstalacijom aplikacije.</li></ul>
+<p><strong>Ne prikupljamo:</strong> ime, e-poštu, lokaciju, kontakte, oglašivačke identifikatore (IDFA), podatke o korištenju ni analitiku. <strong>Nema prijave.</strong></p>
+<h2>Značajka „pregled poveznice"</h2>
+<p>Kad zalijepiš ili podijeliš poveznicu proizvoda, aplikacija se spaja <strong>izravno na stranicu koju si naveo</strong> (npr. internetsku trgovinu) kako bi automatski očitala naslov i cijenu stranice. Posljedično:</p>
+<ul><li>taj se zahtjev odvija između tvog uređaja i stranice treće strane: ta stranica može zabilježiti zahtjev (npr. IP adresu) prema <strong>vlastitim</strong> pravilima privatnosti, na koja nemamo utjecaj;</li><li>mi <strong>ne</strong> primamo, ne vidimo i ne pohranjujemo poveznicu ni izdvojene podatke na bilo kojem poslužitelju. Rezultat ostaje samo na tvom uređaju.</li></ul>
+<h2>Obavijesti</h2>
+<p>Aplikacija koristi <strong>lokalne obavijesti</strong> (podsjetnik na istek razdoblja čekanja te neobavezni podsjetnici). Zakazuju se i njima se upravlja na uređaju: ne šaljemo obavijesti s poslužitelja i za njih nisu potrebni osobni podaci. Možeš ih isključiti u postavkama sustava ili u postavkama aplikacije.</p>
+<h2>Kupnje (Pro verzija)</h2>
+<p>Eventualnu kupnju Pro verzije obrađuje <strong>Apple</strong> putem App Storea. Ne obrađujemo niti primamo podatke o plaćanju: transakcija podliježe Appleovim pravilima privatnosti.</p>
+<h2>Djeca</h2>
+<p>Aplikacija nije namijenjena djeci mlađoj od 14 godina i ne prikuplja svjesno njihove podatke.</p>
+<h2>Čuvanje i brisanje podataka</h2>
+<p>Budući da podaci žive samo na tvom uređaju, imaš potpunu kontrolu: možeš brisati pojedine želje i stavke povijesti u aplikaciji te ukloniti sve podatke deinstalacijom aplikacije.</p>
+<h2>Izmjene ovih pravila</h2>
+<p>Ova pravila možemo ažurirati; ažurirana verzija uvijek će biti dostupna na ovoj adresi, s promijenjenim datumom „Zadnje ažuriranje".</p>
+<h2>Tvoja prava</h2>
+<p>Budući da ne obrađujemo osobne podatke na svojim sustavima, nemamo tvoje podatke koje bismo mogli dati, ispraviti ili izbrisati. Za svaki zahtjev ili pojašnjenje ipak nam možeš pisati na <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+</main><main data-lang="it">
+<p class="lead">WAIT! è pensata per il rispetto della tua privacy: <strong>i tuoi dati restano sul tuo dispositivo</strong>. Non abbiamo un server, non creiamo account, non raccogliamo né trasmettiamo i tuoi dati personali, non usiamo strumenti di tracciamento o pubblicità.</p>
+<h2>Titolare e contatti</h2>
+<p>Titolare del trattamento: lo sviluppatore di WAIT!.<br />Per qualsiasi domanda sulla privacy: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Quali dati tratta l'app</h2>
+<p>Tutto ciò che inserisci nell'app — desideri (nome, prezzo, link, note, categoria), paga oraria, statistiche, traguardi e impostazioni — viene salvato <strong>esclusivamente in locale</strong> sul tuo dispositivo. Questi dati:</p>
+<ul><li>non vengono inviati a noi né a server di terze parti gestiti da noi;</li><li>non sono accessibili a noi in alcun modo;</li><li>puoi eliminare i singoli elementi direttamente nell'app, e tutti i dati vengono rimossi disinstallando l'app.</li></ul>
+<p><strong>Non raccogliamo:</strong> nome, email, posizione, contatti, identificativi pubblicitari (IDFA), dati di utilizzo o analitici. <strong>Non c'è alcun login.</strong></p>
+<h2>Funzione "anteprima da link"</h2>
+<p>Quando incolli o condividi il link di un prodotto, l'app si collega <strong>direttamente al sito che hai indicato</strong> (es. il negozio online) per leggere automaticamente titolo e prezzo della pagina. Conseguenze:</p>
+<ul><li>questa richiesta avviene tra il tuo dispositivo e il sito di terze parti: quel sito potrebbe registrare la richiesta (es. indirizzo IP) secondo la <strong>propria</strong> informativa sulla privacy, su cui non abbiamo controllo;</li><li>noi <strong>non</strong> riceviamo, vediamo o memorizziamo né il link né i dati estratti su nostri server. Il risultato resta solo sul tuo dispositivo.</li></ul>
+<h2>Notifiche</h2>
+<p>L'app usa <strong>notifiche locali</strong> (promemoria di scadenza del periodo di attesa ed eventuali promemoria opzionali). Sono programmate e gestite sul dispositivo: non inviamo notifiche da un server e non servono dati personali per generarle. Puoi disattivarle dalle impostazioni di sistema o dalle impostazioni dell'app.</p>
+<h2>Acquisti (versione Pro)</h2>
+<p>L'eventuale acquisto della versione Pro è gestito <strong>da Apple</strong> tramite l'App Store. Non trattiamo né riceviamo i dati di pagamento: la transazione è soggetta all'informativa sulla privacy di Apple.</p>
+<h2>Minori</h2>
+<p>L'app non è rivolta a minori di 14 anni e non raccoglie consapevolmente loro dati.</p>
+<h2>Conservazione e cancellazione dei dati</h2>
+<p>Poiché i dati risiedono solo sul tuo dispositivo, ne hai il pieno controllo: puoi eliminare i singoli desideri e le voci dello storico direttamente nell'app, e rimuovere tutti i dati disinstallando l'applicazione.</p>
+<h2>Modifiche a questa informativa</h2>
+<p>Potremmo aggiornare questa informativa; la versione aggiornata sarà sempre disponibile a questo indirizzo, con la data di "Ultimo aggiornamento" rivista.</p>
+<h2>I tuoi diritti</h2>
+<p>Non trattando dati personali su nostri sistemi, non abbiamo dati tuoi da fornire, correggere o cancellare. Per qualsiasi richiesta o chiarimento puoi comunque scriverci a <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+</main><main data-lang="hu">
+<p class="lead">A WAIT! a magánéleted tiszteletben tartására épül: <strong>az adataid a készülékeden maradnak</strong>. Nincs szerverünk, nem hozunk létre fiókot, nem gyűjtjük és nem továbbítjuk a személyes adataidat, és nem használunk nyomkövetést vagy hirdetést.</p>
+<h2>Adatkezelő és kapcsolat</h2>
+<p>Adatkezelő: a WAIT! fejlesztője.<br />Adatvédelmi kérdésekben: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Milyen adatokat kezel az app</h2>
+<p>Minden, amit az appba beírsz — kívánságok (név, ár, link, jegyzet, kategória), órabér, statisztikák, eredmények és beállítások — <strong>kizárólag helyben</strong> tárolódik a készülékeden. Ezek az adatok:</p>
+<ul><li>nem kerülnek hozzánk, sem az általunk üzemeltetett harmadik féltől származó szerverekre;</li><li>számunkra semmilyen módon nem hozzáférhetők;</li><li>egyenként törölhetők az appban, és minden adat eltűnik az app eltávolításakor.</li></ul>
+<p><strong>Nem gyűjtünk:</strong> nevet, e-mailt, helyet, névjegyeket, hirdetési azonosítót (IDFA), használati vagy analitikai adatot. <strong>Nincs bejelentkezés.</strong></p>
+<h2>„Link-előnézet" funkció</h2>
+<p>Amikor beillesztesz vagy megosztasz egy termék linket, az app <strong>közvetlenül a megadott oldalhoz</strong> (pl. a webáruházhoz) kapcsolódik, hogy automatikusan beolvassa az oldal címét és árát. Ennek következtében:</p>
+<ul><li>ez a kérés a készüléked és a harmadik fél oldala között történik: az az oldal naplózhatja a kérést (pl. IP-cím) a <strong>saját</strong> adatvédelmi szabályzata szerint, amelyre nincs ráhatásunk;</li><li>mi <strong>nem</strong> kapjuk meg, nem látjuk és nem tároljuk sem a linket, sem a kinyert adatokat semmilyen szerveren. Az eredmény csak a készülékeden marad.</li></ul>
+<h2>Értesítések</h2>
+<p>Az app <strong>helyi értesítéseket</strong> használ (emlékeztető a várakozási idő lejártakor, valamint opcionális emlékeztetők). Ezeket a készülék ütemezi és kezeli: nem küldünk értesítést szerverről, és nincs szükség személyes adatra a létrehozásukhoz. Kikapcsolhatod a rendszer- vagy az app-beállításokban.</p>
+<h2>Vásárlások (Pro verzió)</h2>
+<p>A Pro verzió esetleges megvásárlását <strong>az Apple</strong> kezeli az App Store-on keresztül. Nem kezelünk és nem kapunk fizetési adatokat: a tranzakcióra az Apple adatvédelmi szabályzata vonatkozik.</p>
+<h2>Gyermekek</h2>
+<p>Az app nem 14 év alattiaknak szól, és tudatosan nem gyűjti az adataikat.</p>
+<h2>Adatmegőrzés és -törlés</h2>
+<p>Mivel az adatok csak a készülékeden vannak, teljes körű irányításod van felettük: egyenként törölheted a kívánságokat és az előzményeket az appban, és az összes adatot eltávolíthatod az app törlésével.</p>
+<h2>A szabályzat módosításai</h2>
+<p>Előfordulhat, hogy frissítjük ezt a szabályzatot; a frissített változat mindig elérhető lesz ezen a címen, módosított „Utolsó frissítés" dátummal.</p>
+<h2>A jogaid</h2>
+<p>Mivel a rendszereinken nem kezelünk személyes adatot, nincs olyan adatod, amelyet átadhatnánk, javíthatnánk vagy törölhetnénk. Bármilyen kérés vagy kérdés esetén írhatsz nekünk a <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> címre.</p>
+</main><main data-lang="pl">
+<p class="lead">WAIT! powstał z myślą o Twojej prywatności: <strong>Twoje dane zostają na Twoim urządzeniu</strong>. Nie mamy serwera, nie tworzymy kont, nie zbieramy ani nie przesyłamy Twoich danych osobowych i nie stosujemy śledzenia ani reklam.</p>
+<h2>Administrator i kontakt</h2>
+<p>Administrator danych: twórca aplikacji WAIT!.<br />W sprawach prywatności: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Jakie dane przetwarza aplikacja</h2>
+<p>Wszystko, co wpiszesz w aplikacji — zachcianki (nazwa, cena, link, notatka, kategoria), stawka godzinowa, statystyki, osiągnięcia i ustawienia — jest zapisywane <strong>wyłącznie lokalnie</strong> na Twoim urządzeniu. Te dane:</p>
+<ul><li>nie są wysyłane do nas ani na serwery osób trzecich zarządzane przez nas;</li><li>nie są dla nas w żaden sposób dostępne;</li><li>możesz je usuwać pojedynczo w aplikacji, a wszystkie dane znikają po odinstalowaniu aplikacji.</li></ul>
+<p><strong>Nie zbieramy:</strong> imienia, e-maila, lokalizacji, kontaktów, identyfikatorów reklamowych (IDFA), danych o użyciu ani analitycznych. <strong>Nie ma logowania.</strong></p>
+<h2>Funkcja „podgląd linku"</h2>
+<p>Gdy wkleisz lub udostępnisz link do produktu, aplikacja łączy się <strong>bezpośrednio ze wskazaną stroną</strong> (np. sklepem internetowym), aby automatycznie odczytać tytuł i cenę strony. W efekcie:</p>
+<ul><li>to żądanie odbywa się między Twoim urządzeniem a stroną osoby trzeciej: ta strona może zarejestrować żądanie (np. adres IP) zgodnie z <strong>własną</strong> polityką prywatności, na którą nie mamy wpływu;</li><li>my <strong>nie</strong> otrzymujemy, nie widzimy i nie przechowujemy linku ani odczytanych danych na żadnym serwerze. Wynik zostaje tylko na Twoim urządzeniu.</li></ul>
+<h2>Powiadomienia</h2>
+<p>Aplikacja używa <strong>powiadomień lokalnych</strong> (przypomnienie o końcu okresu oczekiwania oraz opcjonalne przypomnienia). Są planowane i obsługiwane na urządzeniu: nie wysyłamy powiadomień z serwera i nie potrzebujemy danych osobowych do ich utworzenia. Możesz je wyłączyć w ustawieniach systemu lub aplikacji.</p>
+<h2>Zakupy (wersja Pro)</h2>
+<p>Ewentualny zakup wersji Pro obsługuje <strong>Apple</strong> przez App Store. Nie przetwarzamy ani nie otrzymujemy danych płatniczych: transakcja podlega polityce prywatności Apple.</p>
+<h2>Dzieci</h2>
+<p>Aplikacja nie jest przeznaczona dla dzieci poniżej 14 lat i świadomie nie zbiera ich danych.</p>
+<h2>Przechowywanie i usuwanie danych</h2>
+<p>Ponieważ dane są tylko na Twoim urządzeniu, masz nad nimi pełną kontrolę: możesz usuwać pojedyncze zachcianki i wpisy historii w aplikacji oraz usunąć wszystkie dane, odinstalowując aplikację.</p>
+<h2>Zmiany tej polityki</h2>
+<p>Możemy aktualizować tę politykę; zaktualizowana wersja zawsze będzie dostępna pod tym adresem, ze zmienioną datą „Ostatnia aktualizacja".</p>
+<h2>Twoje prawa</h2>
+<p>Ponieważ nie przetwarzamy danych osobowych w naszych systemach, nie mamy Twoich danych do udostępnienia, poprawienia ani usunięcia. W razie pytań lub próśb możesz napisać do nas na <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+</main><main data-lang="pt-BR">
+<p class="lead">O WAIT! foi feito para respeitar sua privacidade: <strong>seus dados ficam no seu dispositivo</strong>. Não temos servidor, não criamos contas, não coletamos nem transmitimos seus dados pessoais e não usamos rastreamento ou publicidade.</p>
+<h2>Controlador e contato</h2>
+<p>Controlador dos dados: o desenvolvedor do WAIT!.<br />Para qualquer dúvida sobre privacidade: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Quais dados o app processa</h2>
+<p>Tudo o que você insere no app — desejos (nome, preço, link, nota, categoria), valor por hora, estatísticas, conquistas e configurações — é salvo <strong>somente localmente</strong> no seu dispositivo. Esses dados:</p>
+<ul><li>não são enviados a nós nem a servidores de terceiros operados por nós;</li><li>não são acessíveis a nós de forma alguma;</li><li>podem ser excluídos um a um dentro do app, e todos os dados são removidos ao desinstalar o app.</li></ul>
+<p><strong>Não coletamos:</strong> nome, e-mail, localização, contatos, identificadores de publicidade (IDFA), dados de uso ou de análise. <strong>Não há login.</strong></p>
+<h2>Recurso "pré-visualização de link"</h2>
+<p>Quando você cola ou compartilha o link de um produto, o app se conecta <strong>diretamente ao site que você indicou</strong> (ex.: a loja online) para ler automaticamente o título e o preço da página. Como consequência:</p>
+<ul><li>essa solicitação ocorre entre o seu dispositivo e o site de terceiros: esse site pode registrar a solicitação (ex.: endereço IP) conforme <strong>sua própria</strong> política de privacidade, sobre a qual não temos controle;</li><li>nós <strong>não</strong> recebemos, vemos nem armazenamos o link ou os dados extraídos em nenhum servidor. O resultado fica só no seu dispositivo.</li></ul>
+<h2>Notificações</h2>
+<p>O app usa <strong>notificações locais</strong> (lembrete do fim do período de espera e lembretes opcionais). São agendadas e gerenciadas no dispositivo: não enviamos notificações de um servidor e nenhum dado pessoal é necessário para gerá-las. Você pode desativá-las nas configurações do sistema ou do app.</p>
+<h2>Compras (versão Pro)</h2>
+<p>Uma eventual compra da versão Pro é feita <strong>pela Apple</strong> via App Store. Não processamos nem recebemos dados de pagamento: a transação está sujeita à política de privacidade da Apple.</p>
+<h2>Crianças</h2>
+<p>O app não é destinado a menores de 14 anos e não coleta conscientemente seus dados.</p>
+<h2>Retenção e exclusão de dados</h2>
+<p>Como os dados ficam só no seu dispositivo, você tem controle total: pode excluir desejos e itens do histórico dentro do app e remover todos os dados desinstalando o app.</p>
+<h2>Alterações nesta política</h2>
+<p>Podemos atualizar esta política; a versão atualizada estará sempre disponível neste endereço, com a data de "Última atualização" revisada.</p>
+<h2>Seus direitos</h2>
+<p>Como não processamos dados pessoais em nossos sistemas, não temos dados seus para fornecer, corrigir ou excluir. Para qualquer pedido ou esclarecimento, você ainda pode escrever para <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+</main><main data-lang="sk">
+<p class="lead">WAIT! je navrhnutý s ohľadom na tvoje súkromie: <strong>tvoje údaje zostávajú na tvojom zariadení</strong>. Nemáme server, nevytvárame účty, nezbierame ani neprenášame tvoje osobné údaje a nepoužívame sledovanie ani reklamu.</p>
+<h2>Prevádzkovateľ a kontakt</h2>
+<p>Prevádzkovateľ: vývojár aplikácie WAIT!.<br />Pri akýchkoľvek otázkach o súkromí: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Aké údaje aplikácia spracúva</h2>
+<p>Všetko, čo zadáš v aplikácii — želania (názov, cena, odkaz, poznámka, kategória), hodinová mzda, štatistiky, úspechy a nastavenia — sa ukladá <strong>výhradne lokálne</strong> na tvojom zariadení. Tieto údaje:</p>
+<ul><li>sa neposielajú nám ani na servery tretích strán, ktoré prevádzkujeme;</li><li>nie sú nám nijako prístupné;</li><li>môžeš ich mazať po jednom v aplikácii a všetky údaje sa odstránia po odinštalovaní aplikácie.</li></ul>
+<p><strong>Nezbierame:</strong> meno, e-mail, polohu, kontakty, reklamné identifikátory (IDFA), údaje o používaní ani analytiku. <strong>Neexistuje prihlásenie.</strong></p>
+<h2>Funkcia „náhľad odkazu"</h2>
+<p>Keď vložíš alebo zdieľaš odkaz na produkt, aplikácia sa pripojí <strong>priamo na stránku, ktorú si zadal</strong> (napr. internetový obchod), aby automaticky prečítala názov a cenu stránky. V dôsledku toho:</p>
+<ul><li>táto požiadavka prebieha medzi tvojím zariadením a stránkou tretej strany: tá stránka môže požiadavku zaznamenať (napr. IP adresu) podľa <strong>vlastných</strong> zásad ochrany súkromia, na ktoré nemáme vplyv;</li><li>my <strong>ne</strong>dostávame, nevidíme ani neukladáme odkaz ani získané údaje na žiadnom serveri. Výsledok zostáva iba na tvojom zariadení.</li></ul>
+<h2>Upozornenia</h2>
+<p>Aplikácia používa <strong>lokálne upozornenia</strong> (pripomienka konca čakacej doby a voliteľné pripomienky). Sú naplánované a spravované na zariadení: neposielame upozornenia zo servera a na ich vytvorenie nie sú potrebné osobné údaje. Môžeš ich vypnúť v nastaveniach systému alebo aplikácie.</p>
+<h2>Nákupy (verzia Pro)</h2>
+<p>Prípadný nákup verzie Pro spracúva <strong>Apple</strong> cez App Store. Nespracúvame ani nedostávame platobné údaje: transakcia podlieha zásadám ochrany súkromia spoločnosti Apple.</p>
+<h2>Deti</h2>
+<p>Aplikácia nie je určená deťom mladším ako 14 rokov a vedome nezbiera ich údaje.</p>
+<h2>Uchovávanie a mazanie údajov</h2>
+<p>Keďže údaje sú len na tvojom zariadení, máš nad nimi plnú kontrolu: jednotlivé želania a položky histórie môžeš mazať v aplikácii a všetky údaje odstrániš odinštalovaním aplikácie.</p>
+<h2>Zmeny týchto zásad</h2>
+<p>Tieto zásady môžeme aktualizovať; aktualizovaná verzia bude vždy dostupná na tejto adrese s upraveným dátumom „Posledná aktualizácia".</p>
+<h2>Tvoje práva</h2>
+<p>Keďže na našich systémoch nespracúvame osobné údaje, nemáme tvoje údaje, ktoré by sme mohli poskytnúť, opraviť alebo vymazať. Pri akejkoľvek žiadosti alebo otázke nám napíš na <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+</main><main data-lang="fi">
+<p class="lead">WAIT! on suunniteltu kunnioittamaan yksityisyyttäsi: <strong>tietosi pysyvät laitteellasi</strong>. Meillä ei ole palvelinta, emme luo tilejä, emme kerää emmekä lähetä henkilötietojasi emmekä käytä seurantaa tai mainontaa.</p>
+<h2>Rekisterinpitäjä ja yhteystiedot</h2>
+<p>Rekisterinpitäjä: WAIT!-sovelluksen kehittäjä.<br />Tietosuojaa koskevissa kysymyksissä: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Mitä tietoja sovellus käsittelee</h2>
+<p>Kaikki, mitä syötät sovellukseen — toiveet (nimi, hinta, linkki, muistiinpano, kategoria), tuntipalkka, tilastot, saavutukset ja asetukset — tallennetaan <strong>vain paikallisesti</strong> laitteellesi. Nämä tiedot:</p>
+<ul><li>eivät lähde meille eivätkä ylläpitämillemme kolmansien osapuolten palvelimille;</li><li>eivät ole meidän saatavillamme millään tavalla;</li><li>voit poistaa yksitellen sovelluksessa, ja kaikki tiedot poistuvat, kun poistat sovelluksen.</li></ul>
+<p><strong>Emme kerää:</strong> nimeä, sähköpostia, sijaintia, yhteystietoja, mainostunnisteita (IDFA), käyttö- tai analytiikkatietoja. <strong>Kirjautumista ei ole.</strong></p>
+<h2>"Linkin esikatselu" -toiminto</h2>
+<p>Kun liität tai jaat tuotteen linkin, sovellus ottaa yhteyden <strong>suoraan antamaasi sivustoon</strong> (esim. verkkokauppaan) lukeakseen automaattisesti sivun otsikon ja hinnan. Tästä seuraa:</p>
+<ul><li>pyyntö tapahtuu laitteesi ja kolmannen osapuolen sivuston välillä: kyseinen sivusto voi kirjata pyynnön (esim. IP-osoitteen) <strong>oman</strong> tietosuojakäytäntönsä mukaisesti, johon meillä ei ole vaikutusvaltaa;</li><li>me <strong>emme</strong> vastaanota, näe emmekä tallenna linkkiä tai poimittuja tietoja millekään palvelimelle. Tulos jää vain laitteellesi.</li></ul>
+<h2>Ilmoitukset</h2>
+<p>Sovellus käyttää <strong>paikallisia ilmoituksia</strong> (muistutus odotusajan päättyessä sekä valinnaiset muistutukset). Ne ajastetaan ja hallitaan laitteella: emme lähetä ilmoituksia palvelimelta eikä niiden luomiseen tarvita henkilötietoja. Voit poistaa ne käytöstä järjestelmän tai sovelluksen asetuksista.</p>
+<h2>Ostot (Pro-versio)</h2>
+<p>Mahdollisen Pro-version oston hoitaa <strong>Apple</strong> App Storen kautta. Emme käsittele emmekä vastaanota maksutietoja: tapahtumaan sovelletaan Applen tietosuojakäytäntöä.</p>
+<h2>Lapset</h2>
+<p>Sovellusta ei ole tarkoitettu alle 14-vuotiaille eikä se kerää tietoisesti heidän tietojaan.</p>
+<h2>Tietojen säilytys ja poisto</h2>
+<p>Koska tiedot ovat vain laitteellasi, hallitset niitä täysin: voit poistaa yksittäisiä toiveita ja historian merkintöjä sovelluksessa sekä poistaa kaikki tiedot poistamalla sovelluksen.</p>
+<h2>Muutokset tähän selosteeseen</h2>
+<p>Voimme päivittää tätä selostetta; päivitetty versio on aina saatavilla tässä osoitteessa, ja "Viimeksi päivitetty" -päivämäärä muutetaan.</p>
+<h2>Oikeutesi</h2>
+<p>Koska emme käsittele henkilötietoja järjestelmissämme, meillä ei ole tietojasi annettavaksi, korjattavaksi tai poistettavaksi. Voit silti lähettää pyynnöt tai kysymykset osoitteeseen <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+</main><main data-lang="sv">
+<p class="lead">WAIT! är byggd för att respektera din integritet: <strong>dina data stannar på din enhet</strong>. Vi har ingen server, skapar inga konton, samlar inte in eller överför dina personuppgifter och använder ingen spårning eller reklam.</p>
+<h2>Personuppgiftsansvarig och kontakt</h2>
+<p>Personuppgiftsansvarig: utvecklaren av WAIT!.<br />För frågor om integritet: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+<h2>Vilka data appen behandlar</h2>
+<p>Allt du anger i appen — önskningar (namn, pris, länk, anteckning, kategori), timlön, statistik, prestationer och inställningar — sparas <strong>endast lokalt</strong> på din enhet. Dessa data:</p>
+<ul><li>skickas inte till oss eller till tredjepartsservrar som vi driver;</li><li>är inte åtkomliga för oss på något sätt;</li><li>kan raderas ett i taget i appen, och alla data tas bort när du avinstallerar appen.</li></ul>
+<p><strong>Vi samlar inte in:</strong> namn, e-post, plats, kontakter, annons-id (IDFA), användnings- eller analysdata. <strong>Det finns ingen inloggning.</strong></p>
+<h2>Funktionen "länkförhandsvisning"</h2>
+<p>När du klistrar in eller delar en produktlänk ansluter appen <strong>direkt till webbplatsen du angav</strong> (t.ex. nätbutiken) för att automatiskt läsa sidans titel och pris. Detta innebär:</p>
+<ul><li>begäran sker mellan din enhet och tredjepartswebbplatsen: den webbplatsen kan logga begäran (t.ex. IP-adress) enligt <strong>sin egen</strong> integritetspolicy, som vi inte har kontroll över;</li><li>vi <strong>tar inte</strong> emot, ser eller lagrar länken eller de utlästa uppgifterna på någon server. Resultatet stannar bara på din enhet.</li></ul>
+<h2>Aviseringar</h2>
+<p>Appen använder <strong>lokala aviseringar</strong> (en påminnelse när väntetiden tar slut samt valfria påminnelser). De schemaläggs och hanteras på enheten: vi skickar inga aviseringar från en server och inga personuppgifter behövs för att skapa dem. Du kan stänga av dem i systeminställningarna eller i appens inställningar.</p>
+<h2>Köp (Pro-version)</h2>
+<p>Ett eventuellt köp av Pro-versionen hanteras <strong>av Apple</strong> via App Store. Vi behandlar eller tar inte emot betalningsuppgifter: transaktionen omfattas av Apples integritetspolicy.</p>
+<h2>Barn</h2>
+<p>Appen är inte avsedd för barn under 14 år och samlar inte medvetet in deras data.</p>
+<h2>Lagring och radering av data</h2>
+<p>Eftersom data bara finns på din enhet har du full kontroll: du kan radera enskilda önskningar och historikposter i appen och ta bort alla data genom att avinstallera appen.</p>
+<h2>Ändringar av denna policy</h2>
+<p>Vi kan uppdatera denna policy; den uppdaterade versionen finns alltid på denna adress, med ett reviderat datum för "Senast uppdaterad".</p>
+<h2>Dina rättigheter</h2>
+<p>Eftersom vi inte behandlar personuppgifter i våra system har vi inga uppgifter om dig att lämna ut, rätta eller radera. Vid frågor eller önskemål kan du ändå skriva till <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.</p>
+</main>
+  <footer><div data-lang="de">WAIT! · Besser kaufen, nicht mehr.</div><div data-lang="en">WAIT! · Spend better, not more.</div><div data-lang="hr">WAIT! · Troši bolje, ne više.</div><div data-lang="it">WAIT! · Compra meglio, non di più.</div><div data-lang="hu">WAIT! · Költs jobban, ne többet.</div><div data-lang="pl">WAIT! · Kupuj lepiej, nie więcej.</div><div data-lang="pt-BR">WAIT! · Gaste melhor, não mais.</div><div data-lang="sk">WAIT! · Míňaj lepšie, nie viac.</div><div data-lang="fi">WAIT! · Osta fiksummin, älä enempää.</div><div data-lang="sv">WAIT! · Spendera smartare, inte mer.</div></footer>
 
-  <main>
-    <p class="lead">
-      WAIT! è pensata per il rispetto della tua privacy: <strong>i tuoi dati restano sul tuo
-      dispositivo</strong>. Non abbiamo un server, non creiamo account, non raccogliamo né
-      trasmettiamo i tuoi dati personali, non usiamo strumenti di tracciamento o pubblicità.
-    </p>
-
-    <h2>Titolare e contatti</h2>
-    <p>
-      Titolare del trattamento: lo sviluppatore di WAIT!.<br />
-      Per qualsiasi domanda sulla privacy: <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.
-    </p>
-
-    <h2>Quali dati tratta l'app</h2>
-    <p>
-      Tutto ciò che inserisci nell'app — desideri (nome, prezzo, link, note, categoria), paga
-      oraria, statistiche, traguardi e impostazioni — viene salvato <strong>esclusivamente in
-      locale</strong> sul tuo dispositivo. Questi dati:
-    </p>
-    <ul>
-      <li>non vengono inviati a noi né a server di terze parti gestiti da noi;</li>
-      <li>non sono accessibili a noi in alcun modo;</li>
-      <li>puoi eliminare i singoli elementi direttamente nell'app, e tutti i dati vengono rimossi disinstallando l'app.</li>
-    </ul>
-    <p>
-      <strong>Non raccogliamo:</strong> nome, email, posizione, contatti, identificativi
-      pubblicitari (IDFA), dati di utilizzo o analitici. <strong>Non c'è alcun login.</strong>
-    </p>
-
-    <h2>Funzione "anteprima da link"</h2>
-    <p>
-      Quando incolli o condividi il link di un prodotto, l'app si collega <strong>direttamente al
-      sito che hai indicato</strong> (es. il negozio online) per leggere automaticamente titolo e
-      prezzo della pagina. Conseguenze:
-    </p>
-    <ul>
-      <li>questa richiesta avviene tra il tuo dispositivo e il sito di terze parti: quel sito
-        potrebbe registrare la richiesta (es. indirizzo IP) secondo la <strong>propria</strong>
-        informativa sulla privacy, su cui non abbiamo controllo;</li>
-      <li>noi <strong>non</strong> riceviamo, vediamo o memorizziamo né il link né i dati estratti
-        su nostri server. Il risultato resta solo sul tuo dispositivo.</li>
-    </ul>
-
-    <h2>Notifiche</h2>
-    <p>
-      L'app usa <strong>notifiche locali</strong> (promemoria di scadenza del periodo di attesa ed
-      eventuali promemoria opzionali). Sono programmate e gestite sul dispositivo: non inviamo
-      notifiche da un server e non servono dati personali per generarle. Puoi disattivarle dalle
-      impostazioni di sistema o dalle impostazioni dell'app.
-    </p>
-
-    <h2>Acquisti (versione Pro)</h2>
-    <p>
-      L'eventuale acquisto della versione Pro è gestito <strong>da Apple</strong> tramite l'App
-      Store. Non trattiamo né riceviamo i dati di pagamento: la transazione è soggetta
-      all'informativa sulla privacy di Apple.
-    </p>
-
-    <h2>Minori</h2>
-    <p>L'app non è rivolta a minori di 14 anni e non raccoglie consapevolmente loro dati.</p>
-
-    <h2>Conservazione e cancellazione dei dati</h2>
-    <p>
-      Poiché i dati risiedono solo sul tuo dispositivo, ne hai il pieno controllo: puoi eliminare
-      i singoli desideri e le voci dello storico direttamente nell'app, e rimuovere tutti i dati
-      disinstallando l'applicazione.
-    </p>
-
-    <h2>Modifiche a questa informativa</h2>
-    <p>
-      Potremmo aggiornare questa informativa; la versione aggiornata sarà sempre disponibile a
-      questo indirizzo, con la data di "Ultimo aggiornamento" rivista.
-    </p>
-
-    <h2>I tuoi diritti</h2>
-    <p>
-      Non trattando dati personali su nostri sistemi, non abbiamo dati tuoi da fornire, correggere
-      o cancellare. Per qualsiasi richiesta o chiarimento puoi comunque scriverci a
-      <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>.
-    </p>
-  </main>
-
-  <footer>WAIT! · Compra meglio, non di più.</footer>
+<script>
+  var TITLES = {"de":`Datenschutzerklärung — WAIT!`,"en":`Privacy Policy — WAIT!`,"hr":`Pravila privatnosti — WAIT!`,"it":`Informativa sulla privacy — WAIT!`,"hu":`Adatvédelmi szabályzat — WAIT!`,"pl":`Polityka prywatności — WAIT!`,"pt-BR":`Política de Privacidade — WAIT!`,"sk":`Zásady ochrany osobných údajov — WAIT!`,"fi":`Tietosuojaseloste — WAIT!`,"sv":`Integritetspolicy — WAIT!`};
+  var SUPPORTED = ["de","en","hr","it","hu","pl","pt-BR","sk","fi","sv"];
+  function pick() {
+    var q = new URLSearchParams(location.search).get("lang");
+    if (q && SUPPORTED.indexOf(q) >= 0) return q;
+    var s = localStorage.getItem("wait_lang");
+    if (s && SUPPORTED.indexOf(s) >= 0) return s;
+    var navs = (navigator.languages || [navigator.language || "en"]);
+    for (var i = 0; i < navs.length; i++) {
+      var l = navs[i].toLowerCase();
+      if (l === "pt-br" || l.indexOf("pt") === 0) return "pt-BR";
+      var base = l.split("-")[0];
+      if (SUPPORTED.indexOf(base) >= 0) return base;
+    }
+    return "en";
+  }
+  function apply(code) {
+    document.querySelectorAll("[data-lang]").forEach(function(el) {
+      el.classList.toggle("active", el.getAttribute("data-lang") === code);
+    });
+    document.documentElement.lang = code;
+    document.title = TITLES[code] || "WAIT!";
+    var sel = document.getElementById("langsel");
+    if (sel) sel.value = code;
+    localStorage.setItem("wait_lang", code);
+  }
+  document.getElementById("langsel").addEventListener("change", function(e) {
+    apply(e.target.value);
+    history.replaceState(null, "", "./index.html?lang=" + e.target.value);
+  });
+  apply(pick());
+</script>
 </body>
 </html>
