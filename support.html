@@ -1,30 +1,28 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Supporto — WAIT!</title>
+<title>WAIT!</title>
 <style>
   :root { --indigo: #4F46E5; --purple: #7C3AED; --text: #1f2430; --muted: #6b7280; }
   * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text);
-    line-height: 1.65;
-    background: #f8f7f4;
-  }
-  .hero {
-    background: linear-gradient(135deg, var(--indigo), var(--purple));
-    color: #fff;
-    padding: 56px 24px 40px;
-    text-align: center;
-  }
+  body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text); line-height: 1.65; background: #f8f7f4; }
+  .hero { position: relative; background: linear-gradient(135deg, var(--indigo), var(--purple));
+    color: #fff; padding: 56px 24px 40px; text-align: center; }
   .hero .logo { font-size: 44px; font-weight: 800; letter-spacing: -1px; margin: 0; }
   .hero h1 { font-size: 20px; font-weight: 600; margin: 14px 0 4px; opacity: 0.95; }
-  .hero .sub { font-size: 13px; opacity: 0.78; }
+  .hero .updated, .hero .sub { font-size: 13px; opacity: 0.78; }
+  .langbar { position: absolute; top: 16px; right: 16px; }
+  .langbar select { appearance: none; -webkit-appearance: none; background: rgba(255,255,255,0.16);
+    color: #fff; border: 1px solid rgba(255,255,255,0.35); border-radius: 999px;
+    padding: 7px 30px 7px 14px; font-size: 13.5px; font-weight: 600; cursor: pointer;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat: no-repeat; background-position: right 10px center; }
+  .langbar select option { color: #1f2430; }
   main { max-width: 720px; margin: -20px auto 0; background: #fff; border-radius: 20px 20px 0 0;
-         padding: 32px 24px 64px; box-shadow: 0 -2px 24px rgba(0,0,0,0.04); }
+    padding: 32px 24px 64px; box-shadow: 0 -2px 24px rgba(0,0,0,0.04); }
   h2 { font-size: 19px; margin-top: 34px; color: var(--text); }
   h3 { font-size: 16px; margin-top: 24px; margin-bottom: 4px; color: var(--text); }
   p, li { font-size: 15.5px; color: #333; }
@@ -32,105 +30,307 @@
   .lead { font-size: 16.5px; }
   .muted { color: var(--muted); }
   .contact { display: block; margin: 20px 0 8px; padding: 18px 20px; background: #f1f0fb;
-             border-radius: 14px; text-align: center; font-size: 16px; }
+    border-radius: 14px; text-align: center; font-size: 16px; }
   .contact a { font-size: 17px; }
   footer { text-align: center; font-size: 13px; color: var(--muted); padding: 24px; }
   footer a { color: var(--muted); }
+  [data-lang] { display: none; }
+  [data-lang].active { display: block; }
 </style>
 </head>
 <body>
   <div class="hero">
-    <p class="logo">W!</p>
-    <h1>Supporto</h1>
-    <p class="sub">Domande, problemi o suggerimenti su WAIT!</p>
-  </div>
-
-  <main>
-    <p class="lead">
-      Hai bisogno di aiuto con WAIT!? Scrivici: rispondiamo a ogni messaggio. Qui sotto trovi anche
-      le risposte alle domande più frequenti.
-    </p>
-
-    <div class="contact">
-      📧 Contattaci a<br />
-      <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>
+    <div class="langbar">
+      <select id="langsel" aria-label="Language"><option value="de">Deutsch</option><option value="en">English</option><option value="hr">Hrvatski</option><option value="it">Italiano</option><option value="hu">Magyar</option><option value="pl">Polski</option><option value="pt-BR">Português (Brasil)</option><option value="sk">Slovenčina</option><option value="fi">Suomi</option><option value="sv">Svenska</option></select>
     </div>
-    <p class="muted" style="text-align:center; font-size:13.5px;">
-      Di solito rispondiamo entro 2-3 giorni lavorativi.
-    </p>
+    <p class="logo">W!</p>
+    <div data-lang="de"><h1>Hilfe & Support</h1><p class="sub">Fragen, Probleme oder Ideen zu WAIT!</p></div><div data-lang="en"><h1>Support</h1><p class="sub">Questions, issues or ideas about WAIT!</p></div><div data-lang="hr"><h1>Podrška</h1><p class="sub">Pitanja, problemi ili prijedlozi o WAIT!</p></div><div data-lang="it"><h1>Supporto</h1><p class="sub">Domande, problemi o suggerimenti su WAIT!</p></div><div data-lang="hu"><h1>Támogatás</h1><p class="sub">Kérdések, problémák vagy ötletek a WAIT!-ról</p></div><div data-lang="pl"><h1>Pomoc</h1><p class="sub">Pytania, problemy lub pomysły dotyczące WAIT!</p></div><div data-lang="pt-BR"><h1>Suporte</h1><p class="sub">Dúvidas, problemas ou sugestões sobre o WAIT!</p></div><div data-lang="sk"><h1>Podpora</h1><p class="sub">Otázky, problémy alebo návrhy k WAIT!</p></div><div data-lang="fi"><h1>Tuki</h1><p class="sub">Kysymyksiä, ongelmia tai ideoita WAIT!-sovelluksesta</p></div><div data-lang="sv"><h1>Support</h1><p class="sub">Frågor, problem eller idéer om WAIT!</p></div>
+  </div>
+  <main data-lang="de">
+<p class="lead">Brauchst du Hilfe mit WAIT!? Schreib uns — wir antworten auf jede Nachricht. Unten findest du außerdem Antworten auf die häufigsten Fragen.</p>
+<div class="contact">📧 Kontaktiere uns unter<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Wir antworten meist innerhalb von 2–3 Werktagen.</p>
+<h2>Was ist WAIT!</h2>
+<p>WAIT! schiebt eine Pause zwischen dich und „Jetzt kaufen". Trag ein, was du kaufen willst, ein Bedenkzeit-Timer startet, und wenn er abläuft, entscheidest du mit kühlem Kopf. Du siehst außerdem, was jede Sache wirklich kostet – umgerechnet in <strong>Arbeitsstunden</strong> – und kannst ein Sparziel schützen. Deine Daten bleiben nur auf deinem Gerät.</p>
+<h2>Häufige Fragen</h2>
+<h3>Wie füge ich einen Wunsch hinzu?</h3>
+<p>Tippe unten auf „+". Du kannst Name und Preis von Hand eingeben, einen Link einfügen (die App versucht, Name und Preis selbst auszufüllen) oder ein Produkt aus einer anderen App teilen.</p>
+<h3>Wie teile ich ein Produkt aus Safari oder einer anderen App?</h3>
+<p>Tippe beim Ansehen eines Produkts auf die System-Schaltfläche <strong>Teilen</strong> und wähle <strong>„Save to WAIT"</strong> aus der Liste. WAIT! öffnet sich mit dem fertigen Link. Wenn du „Save to WAIT" nicht siehst, scrolle die App-Reihe bis zum Ende und tippe auf „Mehr", um es zu aktivieren.</p>
+<h3>Wie wird die Wartezeit berechnet?</h3>
+<p>Sie hängt davon ab, wie viele Arbeitsstunden der Artikel kostet: je mehr Stunden, desto länger die Wartezeit (von wenigen Stunden bis zu einer Woche). Deshalb hilft es, deinen Stundenlohn in den Einstellungen festzulegen.</p>
+<h3>Ich habe meinen Stundenlohn geändert, aber laufende Wartezeiten ändern sich nicht. Ist das normal?</h3>
+<p>Ja. Der neue Lohn gilt für Wünsche, die du ab jetzt hinzufügst; bereits wartende Artikel behalten ihren gestarteten Timer, damit ein Ziel, auf das du schon wartest, nicht verschoben wird.</p>
+<h3>Benachrichtigungen kommen nicht an.</h3>
+<p>Stelle sicher, dass du die Benachrichtigungs-Berechtigung erteilt hast: Gehe zu iOS-Einstellungen → WAIT! → Mitteilungen und aktiviere sie. Prüfe in der App, ob Benachrichtigungen in den Einstellungen aktiv sind. Die Timer-Ablauf-Erinnerung ist immer aktiv, wenn die Berechtigungen erteilt sind.</p>
+<h3>Sind meine Daten sicher? Wohin gehen sie?</h3>
+<p>Sie bleiben <strong>nur auf deinem Handy</strong>. Wir haben keinen Server und kein Konto: Wir erheben, sehen und übertragen nichts. Details in der <a href="./index.html">Datenschutzerklärung</a>.</p>
+<h3>Wie lösche ich meine Daten?</h3>
+<p>Du kannst einzelne Wünsche und Verlaufseinträge in der App löschen. Um alles zu entfernen, deinstalliere die App: Die Daten verschwinden mit ihr.</p>
+<h3>Ist WAIT! kostenpflichtig?</h3>
+<p>Nein, die App ist kostenlos und werbefrei. In Zukunft fügen wir vielleicht eine optionale Pro-Version mit Extra-Funktionen hinzu, aber der Kern der App bleibt gratis.</p>
+<h3>Ich habe einen Vorschlag oder ein Problem gefunden.</h3>
+<p>Wir hören gern von dir: Schreib an <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> und beschreibe, was passiert (und wenn möglich dein iPhone-Modell und deine iOS-Version). Wir nutzen es, um die App zu verbessern.</p>
+</main><main data-lang="en">
+<p class="lead">Need help with WAIT!? Write to us — we reply to every message. Below you'll also find answers to the most common questions.</p>
+<div class="contact">📧 Contact us at<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">We usually reply within 2–3 business days.</p>
+<h2>What is WAIT!</h2>
+<p>WAIT! puts a pause between you and "buy now." Add what you're tempted to buy, a cooling-off timer starts, and when it ends you decide with a clear head. You also see what each thing really costs, converted into <strong>work hours</strong>, and you can protect a savings goal. Your data stays only on your device.</p>
+<h2>Frequently asked questions</h2>
+<h3>How do I add a wish?</h3>
+<p>Tap the "+" button at the bottom. You can type the name and price by hand, paste a link (the app tries to fill in name and price for you) or share a product from another app.</p>
+<h3>How do I share a product from Safari or another app?</h3>
+<p>While viewing a product, tap the system <strong>Share</strong> button and choose <strong>"Save to WAIT"</strong> from the list. WAIT! opens with the link ready. If you don't see "Save to WAIT," scroll the row of apps to the end and tap "More" to enable it.</p>
+<h3>How is the waiting time calculated?</h3>
+<p>It depends on how much the item costs in hours of your work: the more hours it takes, the longer the wait (from a few hours up to a week). That's why it helps to set your hourly wage in settings.</p>
+<h3>I changed my hourly wage but the ongoing waits didn't change. Is that normal?</h3>
+<p>Yes. The new wage applies to wishes you add from now on; items already waiting keep the timer they started with, so a goal you're already waiting for isn't moved.</p>
+<h3>Notifications aren't arriving.</h3>
+<p>Make sure you granted notification permission: go to iOS Settings → WAIT! → Notifications and turn them on. Inside the app, check that notifications are enabled in settings. The timer-expiry reminder is always on when permissions are granted.</p>
+<h3>Is my data safe? Where does it go?</h3>
+<p>It stays <strong>only on your phone</strong>. We have no server and no account: we don't collect, see or transmit anything. Details in the <a href="./index.html">privacy policy</a>.</p>
+<h3>How do I delete my data?</h3>
+<p>You can delete individual wishes and history entries inside the app. To remove everything, uninstall the app: the data disappears with it.</p>
+<h3>Is WAIT! paid?</h3>
+<p>No, the app is free and ad-free. In the future we may add an optional Pro version with extra features, but the core of the app will stay free.</p>
+<h3>I have a suggestion or found a problem.</h3>
+<p>We'd love to hear from you: write to <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> describing what happens (and, if you can, your iPhone model and iOS version). We'll use it to improve the app.</p>
+</main><main data-lang="hr">
+<p class="lead">Treba ti pomoć s WAIT!? Piši nam — odgovaramo na svaku poruku. Ispod su i odgovori na najčešća pitanja.</p>
+<div class="contact">📧 Kontaktiraj nas na<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Obično odgovaramo u roku od 2–3 radna dana.</p>
+<h2>Što je WAIT!</h2>
+<p>WAIT! stavlja pauzu između tebe i „kupi odmah". Dodaj ono što bi kupio, kreće tajmer za hlađenje, a kad istekne, odlučuješ trezveno. Vidiš i koliko svaka stvar stvarno košta, pretvoreno u <strong>radne sate</strong>, te možeš zaštititi cilj štednje. Tvoji podaci ostaju samo na tvom uređaju.</p>
+<h2>Česta pitanja</h2>
+<h3>Kako dodati želju?</h3>
+<p>Dodirni gumb „+" na dnu. Možeš ručno upisati naziv i cijenu, zalijepiti poveznicu (aplikacija pokušava sama popuniti naziv i cijenu) ili podijeliti proizvod iz druge aplikacije.</p>
+<h3>Kako podijeliti proizvod iz Safarija ili druge aplikacije?</h3>
+<p>Dok gledaš proizvod, dodirni sustavni gumb <strong>Podijeli</strong> i odaberi <strong>„Save to WAIT"</strong> s popisa. WAIT! se otvara s gotovom poveznicom. Ako ne vidiš „Save to WAIT", pomakni red aplikacija do kraja i dodirni „Više" da ga uključiš.</p>
+<h3>Kako se računa vrijeme čekanja?</h3>
+<p>Ovisi o tome koliko predmet košta u satima tvog rada: što više sati treba, to je čekanje dulje (od nekoliko sati do tjedan dana). Zato je korisno postaviti svoju satnicu u postavkama.</p>
+<h3>Promijenio sam satnicu, ali čekanja u tijeku se ne mijenjaju. Je li to normalno?</h3>
+<p>Da. Nova satnica vrijedi za želje koje dodaš od sada; predmeti koji već čekaju zadržavaju tajmer s kojim su krenuli, kako se cilj koji već čekaš ne bi pomaknuo.</p>
+<h3>Obavijesti ne stižu.</h3>
+<p>Provjeri jesi li dao dopuštenje za obavijesti: idi u Postavke iOS-a → WAIT! → Obavijesti i uključi ih. U aplikaciji provjeri da su obavijesti uključene u postavkama. Podsjetnik na istek tajmera uvijek je aktivan kad su dopuštenja odobrena.</p>
+<h3>Jesu li moji podaci sigurni? Gdje završe?</h3>
+<p>Ostaju <strong>samo na tvom telefonu</strong>. Nemamo poslužitelj ni račun: ne prikupljamo, ne vidimo i ne prenosimo ništa. Pojedinosti u <a href="./index.html">pravilima privatnosti</a>.</p>
+<h3>Kako izbrisati svoje podatke?</h3>
+<p>Pojedine želje i stavke povijesti možeš brisati u aplikaciji. Za uklanjanje svega deinstaliraj aplikaciju: podaci nestaju s njom.</p>
+<h3>Je li WAIT! plaćen?</h3>
+<p>Ne, aplikacija je besplatna i bez oglasa. U budućnosti bismo mogli dodati neobaveznu Pro verziju s dodatnim značajkama, ali srž aplikacije ostaje besplatna.</p>
+<h3>Imam prijedlog ili sam našao problem.</h3>
+<p>Rado ćemo te čuti: piši na <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> i opiši što se događa (i, ako možeš, model iPhonea i verziju iOS-a). Iskoristit ćemo to za poboljšanje aplikacije.</p>
+</main><main data-lang="it">
+<p class="lead">Hai bisogno di aiuto con WAIT!? Scrivici: rispondiamo a ogni messaggio. Qui sotto trovi anche le risposte alle domande più frequenti.</p>
+<div class="contact">📧 Contattaci a<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Di solito rispondiamo entro 2-3 giorni lavorativi.</p>
+<h2>Cos'è WAIT!</h2>
+<p>WAIT! mette una pausa tra te e "compra ora". Aggiungi quello che vorresti comprare, parte un timer di raffreddamento e quando scade decidi a mente fredda. Vedi anche quanto costa davvero ogni cosa, convertita in <strong>ore di lavoro</strong>, e puoi proteggere un obiettivo di risparmio. I tuoi dati restano solo sul tuo dispositivo.</p>
+<h2>Domande frequenti</h2>
+<h3>Come aggiungo un desiderio?</h3>
+<p>Tocca il pulsante "+" in basso. Puoi scrivere nome e prezzo a mano, incollare un link (l'app prova a compilare nome e prezzo da sola) oppure condividere un prodotto da un'altra app.</p>
+<h3>Come condivido un prodotto da Safari o da un'altra app?</h3>
+<p>Mentre guardi un prodotto, tocca il pulsante <strong>Condividi</strong> del sistema e scegli <strong>"Salva in WAIT"</strong> dall'elenco. WAIT! si apre con il link già pronto. Se non vedi "Salva in WAIT", scorri la riga delle app fino in fondo e tocca "Altro" per attivarla.</p>
+<h3>Come viene calcolato il tempo di attesa?</h3>
+<p>Dipende da quanto costa l'oggetto in ore del tuo lavoro: più ore servono, più lunga è l'attesa (da poche ore fino a una settimana). Per questo è utile impostare la tua paga oraria nelle impostazioni.</p>
+<h3>Ho cambiato la paga oraria ma le attese in corso non cambiano. È normale?</h3>
+<p>Sì. La nuova paga vale per i desideri che aggiungerai d'ora in poi; gli oggetti già in attesa mantengono il timer con cui sono partiti, per non spostare un traguardo che stai già aspettando.</p>
+<h3>Le notifiche non arrivano.</h3>
+<p>Assicurati di aver dato il permesso alle notifiche: vai in Impostazioni di iOS → WAIT! → Notifiche e attivale. Dentro l'app, controlla che le notifiche siano attive nelle impostazioni. Il promemoria di scadenza del timer è sempre attivo quando i permessi sono concessi.</p>
+<h3>I miei dati sono al sicuro? Dove finiscono?</h3>
+<p>Restano <strong>solo sul tuo telefono</strong>. Non abbiamo server né account: non raccogliamo, non vediamo e non trasmettiamo nulla. Dettagli nell'<a href="./index.html">informativa sulla privacy</a>.</p>
+<h3>Come cancello i miei dati?</h3>
+<p>Puoi eliminare i singoli desideri e le voci dello storico direttamente nell'app. Per rimuovere tutto, disinstalla l'app: i dati spariscono insieme ad essa.</p>
+<h3>WAIT! è a pagamento?</h3>
+<p>No, l'app è gratuita e senza pubblicità. In futuro potremmo aggiungere una versione Pro opzionale con funzioni extra, ma il cuore dell'app resterà gratis.</p>
+<h3>Ho un suggerimento o ho trovato un problema.</h3>
+<p>Ci fa piacere ascoltarti: scrivi a <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> descrivendo cosa succede (e, se puoi, il modello di iPhone e la versione di iOS). Lo useremo per migliorare l'app.</p>
+</main><main data-lang="hu">
+<p class="lead">Segítség kell a WAIT!-hoz? Írj nekünk — minden üzenetre válaszolunk. Lentebb a leggyakoribb kérdésekre is választ találsz.</p>
+<div class="contact">📧 Írj nekünk<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Általában 2–3 munkanapon belül válaszolunk.</p>
+<h2>Mi az a WAIT!</h2>
+<p>A WAIT! szünetet tesz közéd és a „vedd meg most" közé. Vedd fel, amit megvennél, elindul egy várakozási időzítő, és amikor lejár, hideg fejjel döntesz. Azt is látod, mennyibe kerül valójában minden, <strong>munkaórára</strong> átváltva, és megvédhetsz egy megtakarítási célt. Az adataid csak a készülékeden maradnak.</p>
+<h2>Gyakori kérdések</h2>
+<h3>Hogyan adok hozzá kívánságot?</h3>
+<p>Koppints a lenti „+" gombra. Kézzel beírhatod a nevet és az árat, beilleszthetsz egy linket (az app megpróbálja magától kitölteni a nevet és az árat), vagy megoszthatsz egy terméket egy másik appból.</p>
+<h3>Hogyan osztok meg terméket a Safariból vagy másik appból?</h3>
+<p>Miközben egy terméket nézel, koppints a rendszer <strong>Megosztás</strong> gombjára, és válaszd a listából a <strong>„Save to WAIT"</strong> lehetőséget. A WAIT! a kész linkkel nyílik meg. Ha nem látod a „Save to WAIT"-et, görgesd az appok sorát a végéig, és koppints a „Továbbiak"-ra az engedélyezéshez.</p>
+<h3>Hogyan számolódik a várakozási idő?</h3>
+<p>Attól függ, hány munkaórába kerül a tárgy: minél több óra kell, annál hosszabb a várakozás (pár órától egy hétig). Ezért érdemes beállítani az órabéredet a beállításokban.</p>
+<h3>Megváltoztattam az órabért, de a folyamatban lévő várakozások nem változtak. Ez normális?</h3>
+<p>Igen. Az új órabér a mostantól hozzáadott kívánságokra vonatkozik; a már várakozó tárgyak megtartják az indított időzítőt, hogy a már várt cél ne mozduljon el.</p>
+<h3>Nem érkeznek az értesítések.</h3>
+<p>Győződj meg róla, hogy megadtad az értesítési engedélyt: iOS Beállítások → WAIT! → Értesítések, és kapcsold be. Az appban ellenőrizd, hogy az értesítések be vannak-e kapcsolva a beállításokban. Az időzítő lejárati emlékeztetője mindig aktív, ha az engedélyek megvannak.</p>
+<h3>Biztonságban vannak az adataim? Hová kerülnek?</h3>
+<p><strong>Csak a telefonodon</strong> maradnak. Nincs szerverünk és fiókunk: semmit nem gyűjtünk, látunk vagy továbbítunk. Részletek az <a href="./index.html">adatvédelmi szabályzatban</a>.</p>
+<h3>Hogyan törlöm az adataimat?</h3>
+<p>Az egyes kívánságokat és előzményeket az appban törölheted. Minden eltávolításához töröld az appot: az adatok vele együtt eltűnnek.</p>
+<h3>A WAIT! fizetős?</h3>
+<p>Nem, az app ingyenes és reklámmentes. A jövőben hozzáadhatunk egy opcionális Pro verziót extra funkciókkal, de az app lényege ingyenes marad.</p>
+<h3>Van egy javaslatom, vagy hibát találtam.</h3>
+<p>Szívesen halljuk: írj a <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> címre, és írd le, mi történik (és ha tudod, az iPhone-modelledet és az iOS-verziót). Ezt az app fejlesztésére használjuk.</p>
+</main><main data-lang="pl">
+<p class="lead">Potrzebujesz pomocy z WAIT!? Napisz do nas — odpowiadamy na każdą wiadomość. Poniżej znajdziesz też odpowiedzi na najczęstsze pytania.</p>
+<div class="contact">📧 Napisz do nas<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Zwykle odpowiadamy w ciągu 2–3 dni roboczych.</p>
+<h2>Czym jest WAIT!</h2>
+<p>WAIT! wstawia pauzę między ciebie a „kup teraz". Dodaj to, co chcesz kupić, rusza minutnik wyciszenia, a gdy się skończy, decydujesz na chłodno. Widzisz też, ile naprawdę kosztuje każda rzecz, przeliczone na <strong>godziny pracy</strong>, i możesz chronić cel oszczędzania. Twoje dane zostają tylko na twoim urządzeniu.</p>
+<h2>Najczęstsze pytania</h2>
+<h3>Jak dodać zachciankę?</h3>
+<p>Dotknij przycisku „+" na dole. Możesz wpisać nazwę i cenę ręcznie, wkleić link (aplikacja spróbuje sama uzupełnić nazwę i cenę) albo udostępnić produkt z innej aplikacji.</p>
+<h3>Jak udostępnić produkt z Safari lub innej aplikacji?</h3>
+<p>Podczas oglądania produktu dotknij systemowego przycisku <strong>Udostępnij</strong> i wybierz z listy <strong>„Save to WAIT"</strong>. WAIT! otworzy się z gotowym linkiem. Jeśli nie widzisz „Save to WAIT", przewiń rząd aplikacji do końca i dotknij „Więcej", aby to włączyć.</p>
+<h3>Jak obliczany jest czas oczekiwania?</h3>
+<p>Zależy od tego, ile przedmiot kosztuje w godzinach twojej pracy: im więcej godzin, tym dłuższe oczekiwanie (od kilku godzin do tygodnia). Dlatego warto ustawić swoją stawkę godzinową w ustawieniach.</p>
+<h3>Zmieniłem stawkę godzinową, ale trwające oczekiwania się nie zmieniają. To normalne?</h3>
+<p>Tak. Nowa stawka dotyczy zachcianek dodanych od teraz; przedmioty już oczekujące zachowują minutnik, z którym wystartowały, aby nie przesuwać celu, na który już czekasz.</p>
+<h3>Powiadomienia nie przychodzą.</h3>
+<p>Upewnij się, że przyznałeś pozwolenie na powiadomienia: przejdź do Ustawienia iOS → WAIT! → Powiadomienia i włącz je. W aplikacji sprawdź, czy powiadomienia są włączone w ustawieniach. Przypomnienie o końcu minutnika jest zawsze aktywne, gdy pozwolenia są przyznane.</p>
+<h3>Czy moje dane są bezpieczne? Gdzie trafiają?</h3>
+<p>Zostają <strong>tylko na twoim telefonie</strong>. Nie mamy serwera ani konta: nic nie zbieramy, nie widzimy i nie przesyłamy. Szczegóły w <a href="./index.html">polityce prywatności</a>.</p>
+<h3>Jak usunąć moje dane?</h3>
+<p>Pojedyncze zachcianki i wpisy historii możesz usuwać w aplikacji. Aby usunąć wszystko, odinstaluj aplikację: dane znikają razem z nią.</p>
+<h3>Czy WAIT! jest płatny?</h3>
+<p>Nie, aplikacja jest darmowa i bez reklam. W przyszłości możemy dodać opcjonalną wersję Pro z dodatkowymi funkcjami, ale rdzeń aplikacji pozostanie darmowy.</p>
+<h3>Mam sugestię lub znalazłem problem.</h3>
+<p>Chętnie posłuchamy: napisz na <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a>, opisując, co się dzieje (i jeśli możesz, model iPhone'a i wersję iOS). Wykorzystamy to do ulepszenia aplikacji.</p>
+</main><main data-lang="pt-BR">
+<p class="lead">Precisa de ajuda com o WAIT!? Escreva para nós — respondemos a cada mensagem. Abaixo você também encontra respostas às dúvidas mais comuns.</p>
+<div class="contact">📧 Fale com a gente<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Costumamos responder em 2–3 dias úteis.</p>
+<h2>O que é o WAIT!</h2>
+<p>O WAIT! coloca uma pausa entre você e o "comprar agora". Adicione o que você quer comprar, começa um timer de espera e, quando acaba, você decide com a cabeça fria. Você também vê quanto cada coisa custa de verdade, convertido em <strong>horas de trabalho</strong>, e pode proteger uma meta de economia. Seus dados ficam só no seu dispositivo.</p>
+<h2>Perguntas frequentes</h2>
+<h3>Como adiciono um desejo?</h3>
+<p>Toque no botão "+" embaixo. Você pode digitar nome e preço à mão, colar um link (o app tenta preencher nome e preço sozinho) ou compartilhar um produto de outro app.</p>
+<h3>Como compartilho um produto do Safari ou de outro app?</h3>
+<p>Ao ver um produto, toque no botão <strong>Compartilhar</strong> do sistema e escolha <strong>"Save to WAIT"</strong> na lista. O WAIT! abre com o link pronto. Se não vir "Save to WAIT", role a linha de apps até o fim e toque em "Mais" para ativá-lo.</p>
+<h3>Como é calculado o tempo de espera?</h3>
+<p>Depende de quanto o item custa em horas do seu trabalho: quanto mais horas, maior a espera (de poucas horas até uma semana). Por isso ajuda definir seu valor por hora nas configurações.</p>
+<h3>Mudei o valor por hora, mas as esperas em andamento não mudam. É normal?</h3>
+<p>Sim. O novo valor vale para os desejos que você adicionar de agora em diante; os itens já em espera mantêm o timer com que começaram, para não mover uma meta que você já está esperando.</p>
+<h3>As notificações não chegam.</h3>
+<p>Verifique se você concedeu permissão de notificações: vá em Ajustes do iOS → WAIT! → Notificações e ative-as. No app, confira se as notificações estão ativas nas configurações. O lembrete do fim do timer fica sempre ativo quando as permissões são concedidas.</p>
+<h3>Meus dados estão seguros? Para onde vão?</h3>
+<p>Ficam <strong>só no seu celular</strong>. Não temos servidor nem conta: não coletamos, não vemos e não transmitimos nada. Detalhes na <a href="./index.html">política de privacidade</a>.</p>
+<h3>Como excluo meus dados?</h3>
+<p>Você pode excluir desejos e itens do histórico dentro do app. Para remover tudo, desinstale o app: os dados vão junto.</p>
+<h3>O WAIT! é pago?</h3>
+<p>Não, o app é gratuito e sem anúncios. No futuro podemos adicionar uma versão Pro opcional com recursos extras, mas o núcleo do app continuará grátis.</p>
+<h3>Tenho uma sugestão ou encontrei um problema.</h3>
+<p>Vamos adorar saber: escreva para <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> descrevendo o que acontece (e, se puder, o modelo do iPhone e a versão do iOS). Usaremos isso para melhorar o app.</p>
+</main><main data-lang="sk">
+<p class="lead">Potrebuješ pomoc s WAIT!? Napíš nám — odpovedáme na každú správu. Nižšie nájdeš aj odpovede na najčastejšie otázky.</p>
+<div class="contact">📧 Kontaktuj nás na<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Zvyčajne odpovieme do 2–3 pracovných dní.</p>
+<h2>Čo je WAIT!</h2>
+<p>WAIT! vloží pauzu medzi teba a „kúpiť hneď". Pridaj, čo by si kúpil, spustí sa časovač na vychladnutie, a keď vyprší, rozhodneš sa s chladnou hlavou. Vidíš aj, koľko každá vec naozaj stojí, prepočítané na <strong>pracovné hodiny</strong>, a môžeš chrániť sporiaci cieľ. Tvoje údaje zostávajú len na tvojom zariadení.</p>
+<h2>Časté otázky</h2>
+<h3>Ako pridám želanie?</h3>
+<p>Ťukni na tlačidlo „+" dole. Môžeš ručne napísať názov a cenu, vložiť odkaz (aplikácia sa pokúsi sama vyplniť názov a cenu) alebo zdieľať produkt z inej aplikácie.</p>
+<h3>Ako zdieľam produkt zo Safari alebo inej aplikácie?</h3>
+<p>Počas prezerania produktu ťukni na systémové tlačidlo <strong>Zdieľať</strong> a zo zoznamu vyber <strong>„Save to WAIT"</strong>. WAIT! sa otvorí s pripraveným odkazom. Ak nevidíš „Save to WAIT", posuň riadok aplikácií na koniec a ťukni na „Viac", aby si to zapol.</p>
+<h3>Ako sa počíta čas čakania?</h3>
+<p>Závisí od toho, koľko predmet stojí v hodinách tvojej práce: čím viac hodín, tým dlhšie čakanie (od pár hodín po týždeň). Preto je užitočné nastaviť si hodinovú mzdu v nastaveniach.</p>
+<h3>Zmenil som hodinovú mzdu, ale prebiehajúce čakania sa nemenia. Je to normálne?</h3>
+<p>Áno. Nová mzda platí pre želania pridané odteraz; položky, ktoré už čakajú, si ponechajú časovač, s ktorým začali, aby sa cieľ, na ktorý už čakáš, neposunul.</p>
+<h3>Neprichádzajú upozornenia.</h3>
+<p>Uisti sa, že si udelil povolenie na upozornenia: prejdi do Nastavenia iOS → WAIT! → Upozornenia a zapni ich. V aplikácii skontroluj, či sú upozornenia zapnuté v nastaveniach. Pripomienka konca časovača je vždy aktívna, keď sú povolenia udelené.</p>
+<h3>Sú moje údaje v bezpečí? Kam idú?</h3>
+<p>Zostávajú <strong>len v tvojom telefóne</strong>. Nemáme server ani účet: nič nezbierame, nevidíme a neprenášame. Podrobnosti v <a href="./index.html">zásadách ochrany súkromia</a>.</p>
+<h3>Ako vymažem svoje údaje?</h3>
+<p>Jednotlivé želania a položky histórie môžeš mazať v aplikácii. Na odstránenie všetkého aplikáciu odinštaluj: údaje zmiznú spolu s ňou.</p>
+<h3>Je WAIT! platený?</h3>
+<p>Nie, aplikácia je zadarmo a bez reklám. V budúcnosti môžeme pridať voliteľnú Pro verziu s funkciami navyše, ale jadro aplikácie zostane zadarmo.</p>
+<h3>Mám návrh alebo som našiel problém.</h3>
+<p>Radi ťa vypočujeme: napíš na <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> a opíš, čo sa deje (a ak môžeš, model iPhonu a verziu iOS). Použijeme to na zlepšenie aplikácie.</p>
+</main><main data-lang="fi">
+<p class="lead">Tarvitsetko apua WAIT!-sovelluksen kanssa? Kirjoita meille — vastaamme jokaiseen viestiin. Alta löydät myös vastaukset yleisimpiin kysymyksiin.</p>
+<div class="contact">📧 Ota yhteyttä<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Vastaamme yleensä 2–3 arkipäivässä.</p>
+<h2>Mikä on WAIT!</h2>
+<p>WAIT! laittaa tauon sinun ja "osta heti" -napin väliin. Lisää se, mitä tekisi mieli ostaa, harkinta-ajastin käynnistyy, ja kun se päättyy, päätät kylmän rauhallisesti. Näet myös, mitä kukin asia oikeasti maksaa <strong>työtunteina</strong>, ja voit suojata säästötavoitteen. Tietosi pysyvät vain laitteellasi.</p>
+<h2>Usein kysytyt kysymykset</h2>
+<h3>Miten lisään toiveen?</h3>
+<p>Napauta "+"-painiketta alhaalla. Voit kirjoittaa nimen ja hinnan käsin, liittää linkin (sovellus yrittää täyttää nimen ja hinnan puolestasi) tai jakaa tuotteen toisesta sovelluksesta.</p>
+<h3>Miten jaan tuotteen Safarista tai toisesta sovelluksesta?</h3>
+<p>Kun katselet tuotetta, napauta järjestelmän <strong>Jaa</strong>-painiketta ja valitse listalta <strong>"Save to WAIT"</strong>. WAIT! avautuu linkki valmiina. Jos et näe "Save to WAIT", vieritä sovellusrivi loppuun ja napauta "Lisää" ottaaksesi sen käyttöön.</p>
+<h3>Miten odotusaika lasketaan?</h3>
+<p>Se riippuu siitä, kuinka monta työtuntia tuote maksaa: mitä enemmän tunteja, sitä pidempi odotus (muutamasta tunnista viikkoon). Siksi kannattaa asettaa tuntipalkkasi asetuksissa.</p>
+<h3>Vaihdoin tuntipalkan, mutta käynnissä olevat odotukset eivät muuttuneet. Onko se normaalia?</h3>
+<p>Kyllä. Uusi palkka koskee toiveita, jotka lisäät tästä eteenpäin; jo odottavat kohteet säilyttävät alkuperäisen ajastimensa, jottei jo odottamaasi tavoitetta siirretä.</p>
+<h3>Ilmoitukset eivät tule perille.</h3>
+<p>Varmista, että olet antanut ilmoitusluvan: mene iOS-asetukset → WAIT! → Ilmoitukset ja ota ne käyttöön. Tarkista sovelluksessa, että ilmoitukset ovat päällä asetuksissa. Ajastimen päättymismuistutus on aina päällä, kun luvat on annettu.</p>
+<h3>Ovatko tietoni turvassa? Minne ne menevät?</h3>
+<p>Ne pysyvät <strong>vain puhelimessasi</strong>. Meillä ei ole palvelinta eikä tiliä: emme kerää, näe emmekä lähetä mitään. Lisätiedot <a href="./index.html">tietosuojaselosteessa</a>.</p>
+<h3>Miten poistan tietoni?</h3>
+<p>Voit poistaa yksittäisiä toiveita ja historian merkintöjä sovelluksessa. Kaiken poistamiseksi poista sovellus: tiedot katoavat sen mukana.</p>
+<h3>Onko WAIT! maksullinen?</h3>
+<p>Ei, sovellus on ilmainen ja mainokseton. Tulevaisuudessa saatamme lisätä valinnaisen Pro-version lisäominaisuuksilla, mutta sovelluksen ydin pysyy ilmaisena.</p>
+<h3>Minulla on ehdotus tai löysin ongelman.</h3>
+<p>Kuulemme mielellämme: kirjoita osoitteeseen <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> ja kerro, mitä tapahtuu (ja jos voit, iPhone-mallisi ja iOS-versiosi). Käytämme sitä sovelluksen parantamiseen.</p>
+</main><main data-lang="sv">
+<p class="lead">Behöver du hjälp med WAIT!? Skriv till oss — vi svarar på varje meddelande. Nedan hittar du även svar på de vanligaste frågorna.</p>
+<div class="contact">📧 Kontakta oss på<br /><a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a></div>
+<p class="muted" style="text-align:center; font-size:13.5px;">Vi svarar oftast inom 2–3 arbetsdagar.</p>
+<h2>Vad är WAIT!</h2>
+<p>WAIT! lägger en paus mellan dig och "köp nu". Lägg till det du vill köpa, en betänketid-timer startar, och när den går ut bestämmer du med svalt huvud. Du ser också vad varje sak verkligen kostar, omräknat till <strong>arbetstimmar</strong>, och du kan skydda ett sparmål. Dina data stannar bara på din enhet.</p>
+<h2>Vanliga frågor</h2>
+<h3>Hur lägger jag till en önskan?</h3>
+<p>Tryck på "+"-knappen längst ner. Du kan skriva namn och pris för hand, klistra in en länk (appen försöker fylla i namn och pris åt dig) eller dela en produkt från en annan app.</p>
+<h3>Hur delar jag en produkt från Safari eller en annan app?</h3>
+<p>När du tittar på en produkt, tryck på systemets <strong>Dela</strong>-knapp och välj <strong>"Save to WAIT"</strong> i listan. WAIT! öppnas med länken klar. Om du inte ser "Save to WAIT", scrolla appraden till slutet och tryck på "Mer" för att aktivera det.</p>
+<h3>Hur beräknas väntetiden?</h3>
+<p>Det beror på hur mycket saken kostar i timmar av ditt arbete: ju fler timmar, desto längre väntetid (från några timmar upp till en vecka). Därför är det bra att ställa in din timlön i inställningarna.</p>
+<h3>Jag ändrade timlönen men pågående väntetider ändras inte. Är det normalt?</h3>
+<p>Ja. Den nya lönen gäller önskningar du lägger till från och med nu; föremål som redan väntar behåller timern de startade med, så att ett mål du redan väntar på inte flyttas.</p>
+<h3>Aviseringar kommer inte fram.</h3>
+<p>Se till att du gett aviseringstillstånd: gå till iOS-inställningar → WAIT! → Notiser och slå på dem. I appen, kontrollera att aviseringar är på i inställningarna. Påminnelsen när timern går ut är alltid på när tillstånd getts.</p>
+<h3>Är mina data säkra? Vart tar de vägen?</h3>
+<p>De stannar <strong>bara på din telefon</strong>. Vi har ingen server och inget konto: vi samlar inte in, ser eller överför något. Detaljer i <a href="./index.html">integritetspolicyn</a>.</p>
+<h3>Hur raderar jag mina data?</h3>
+<p>Du kan radera enskilda önskningar och historikposter i appen. För att ta bort allt, avinstallera appen: data försvinner med den.</p>
+<h3>Kostar WAIT!?</h3>
+<p>Nej, appen är gratis och reklamfri. I framtiden kan vi lägga till en valfri Pro-version med extra funktioner, men kärnan i appen förblir gratis.</p>
+<h3>Jag har ett förslag eller hittade ett problem.</h3>
+<p>Vi vill gärna höra från dig: skriv till <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> och beskriv vad som händer (och om du kan, din iPhone-modell och iOS-version). Vi använder det för att förbättra appen.</p>
+</main>
+  <footer><div data-lang="de">WAIT! · Schütze, was du wirklich willst. · <a href="./index.html">Datenschutz</a></div><div data-lang="en">WAIT! · Protect what you really want. · <a href="./index.html">Privacy</a></div><div data-lang="hr">WAIT! · Zaštiti ono što stvarno želiš. · <a href="./index.html">Privatnost</a></div><div data-lang="it">WAIT! · Proteggi quello che vuoi davvero. · <a href="./index.html">Privacy</a></div><div data-lang="hu">WAIT! · Védd, amit tényleg akarsz. · <a href="./index.html">Adatvédelem</a></div><div data-lang="pl">WAIT! · Chroń to, czego naprawdę chcesz. · <a href="./index.html">Prywatność</a></div><div data-lang="pt-BR">WAIT! · Proteja o que você realmente quer. · <a href="./index.html">Privacidade</a></div><div data-lang="sk">WAIT! · Chráň to, čo naozaj chceš. · <a href="./index.html">Súkromie</a></div><div data-lang="fi">WAIT! · Suojaa se, mitä oikeasti haluat. · <a href="./index.html">Tietosuoja</a></div><div data-lang="sv">WAIT! · Skydda det du verkligen vill ha. · <a href="./index.html">Integritet</a></div></footer>
 
-    <h2>Cos'è WAIT!</h2>
-    <p>
-      WAIT! mette una pausa tra te e "compra ora". Aggiungi quello che vorresti comprare, parte un
-      timer di raffreddamento e quando scade decidi a mente fredda. Vedi anche quanto costa davvero
-      ogni cosa, convertita in <strong>ore di lavoro</strong>, e puoi proteggere un obiettivo di
-      risparmio. I tuoi dati restano solo sul tuo dispositivo.
-    </p>
-
-    <h2>Domande frequenti</h2>
-
-    <h3>Come aggiungo un desiderio?</h3>
-    <p>
-      Tocca il pulsante "+" in basso. Puoi scrivere nome e prezzo a mano, incollare un link (l'app
-      prova a compilare nome e prezzo da sola) oppure condividere un prodotto da un'altra app.
-    </p>
-
-    <h3>Come condivido un prodotto da Safari o da un'altra app?</h3>
-    <p>
-      Mentre guardi un prodotto, tocca il pulsante <strong>Condividi</strong> del sistema e scegli
-      <strong>"Salva in WAIT"</strong> dall'elenco. WAIT! si apre con il link già pronto. Se non
-      vedi "Salva in WAIT", scorri la riga delle app fino in fondo e tocca "Altro" per attivarla.
-    </p>
-
-    <h3>Come viene calcolato il tempo di attesa?</h3>
-    <p>
-      Dipende da quanto costa l'oggetto in ore del tuo lavoro: più ore servono, più lunga è l'attesa
-      (da poche ore fino a una settimana). Per questo è utile impostare la tua paga oraria nelle
-      impostazioni.
-    </p>
-
-    <h3>Ho cambiato la paga oraria ma le attese in corso non cambiano. È normale?</h3>
-    <p>
-      Sì. La nuova paga vale per i desideri che aggiungerai d'ora in poi; gli oggetti già in attesa
-      mantengono il timer con cui sono partiti, per non spostare un traguardo che stai già aspettando.
-    </p>
-
-    <h3>Le notifiche non arrivano.</h3>
-    <p>
-      Assicurati di aver dato il permesso alle notifiche: vai in Impostazioni di iOS → WAIT! →
-      Notifiche e attivale. Dentro l'app, controlla che le notifiche siano attive nelle impostazioni.
-      Il promemoria di scadenza del timer è sempre attivo quando i permessi sono concessi.
-    </p>
-
-    <h3>I miei dati sono al sicuro? Dove finiscono?</h3>
-    <p>
-      Restano <strong>solo sul tuo telefono</strong>. Non abbiamo server né account: non raccogliamo,
-      non vediamo e non trasmettiamo nulla. Dettagli nell'<a href="./index.html">informativa sulla
-      privacy</a>.
-    </p>
-
-    <h3>Come cancello i miei dati?</h3>
-    <p>
-      Puoi eliminare i singoli desideri e le voci dello storico direttamente nell'app. Per rimuovere
-      tutto, disinstalla l'app: i dati spariscono insieme ad essa.
-    </p>
-
-    <h3>WAIT! è a pagamento?</h3>
-    <p>
-      No, l'app è gratuita e senza pubblicità. In futuro potremmo aggiungere una versione Pro
-      opzionale con funzioni extra, ma il cuore dell'app resterà gratis.
-    </p>
-
-    <h3>Ho un suggerimento o ho trovato un problema.</h3>
-    <p>
-      Ci fa piacere ascoltarti: scrivi a
-      <a href="mailto:waitapp.help@gmail.com">waitapp.help@gmail.com</a> descrivendo cosa succede
-      (e, se puoi, il modello di iPhone e la versione di iOS). Lo useremo per migliorare l'app.
-    </p>
-  </main>
-
-  <footer>
-    WAIT! · Proteggi quello che vuoi davvero. · <a href="./index.html">Privacy</a>
-  </footer>
+<script>
+  var TITLES = {"de":`Hilfe & Support — WAIT!`,"en":`Support — WAIT!`,"hr":`Podrška — WAIT!`,"it":`Supporto — WAIT!`,"hu":`Támogatás — WAIT!`,"pl":`Pomoc — WAIT!`,"pt-BR":`Suporte — WAIT!`,"sk":`Podpora — WAIT!`,"fi":`Tuki — WAIT!`,"sv":`Support — WAIT!`};
+  var SUPPORTED = ["de","en","hr","it","hu","pl","pt-BR","sk","fi","sv"];
+  function pick() {
+    var q = new URLSearchParams(location.search).get("lang");
+    if (q && SUPPORTED.indexOf(q) >= 0) return q;
+    var s = localStorage.getItem("wait_lang");
+    if (s && SUPPORTED.indexOf(s) >= 0) return s;
+    var navs = (navigator.languages || [navigator.language || "en"]);
+    for (var i = 0; i < navs.length; i++) {
+      var l = navs[i].toLowerCase();
+      if (l === "pt-br" || l.indexOf("pt") === 0) return "pt-BR";
+      var base = l.split("-")[0];
+      if (SUPPORTED.indexOf(base) >= 0) return base;
+    }
+    return "en";
+  }
+  function apply(code) {
+    document.querySelectorAll("[data-lang]").forEach(function(el) {
+      el.classList.toggle("active", el.getAttribute("data-lang") === code);
+    });
+    document.documentElement.lang = code;
+    document.title = TITLES[code] || "WAIT!";
+    var sel = document.getElementById("langsel");
+    if (sel) sel.value = code;
+    localStorage.setItem("wait_lang", code);
+  }
+  document.getElementById("langsel").addEventListener("change", function(e) {
+    apply(e.target.value);
+    history.replaceState(null, "", "./support.html?lang=" + e.target.value);
+  });
+  apply(pick());
+</script>
 </body>
 </html>
